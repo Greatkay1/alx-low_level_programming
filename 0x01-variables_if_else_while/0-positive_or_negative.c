@@ -3,8 +3,8 @@
 #include <stdio.h>
 /**
  * main -  Entry point
- * Desscription: Get a random number and print the number
- * and if it is positive, negative, or zero
+ * Description: Get a random number and print the number
+ * and if it is positive or negative
  * Return: Always 0
  */
 int main(void)
