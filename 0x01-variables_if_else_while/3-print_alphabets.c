@@ -1,25 +1,28 @@
 #include <stdio.h>
 /**
- * main -  Entry point
- * Description:  Print the alphabet in lowercase
- * and then in uppercase, followed by a new line
- * Return: 0
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-char c = 'a';
+char c;
 
-while(c <= 'z')
+char d;
+
+c = 'a';
+d = 'A';
+while
+(c <= 'z')
 {
 putchar(c);
 c++;
 }
-
-c = 'A';
-while (c <= 'Z')
+while
+(c <= 'Z')
 {
-putchar(c);
-c++;
+putchar(d);
+d++;
 }
 putchar('\n');
 return (0);
