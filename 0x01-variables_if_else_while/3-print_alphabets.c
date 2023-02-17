@@ -12,14 +12,12 @@ char d;
 
 c = 'a';
 d = 'A';
-while
-(c <= 'z')
+while (c <= 'z')
 {
 putchar(c);
 c++;
 }
-while
-(c <= 'Z')
+while (c <= 'Z')
 {
 putchar(d);
 d++;
