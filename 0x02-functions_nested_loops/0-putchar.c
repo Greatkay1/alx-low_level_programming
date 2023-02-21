@@ -1,18 +1,19 @@
 #include "main.h"
 /**
- * main - print _putchar
- *
- *
- * Return: Always 0
+ * main - main function
+ * _putchar: print the alphabets putchar
+ * Return: 0
  */
 int main(void)
 {
-int a;
-char b[] = "_putchar";
-for(a = 0; a < 9; a++);
-{
-_putchar(b[a]);=
-}
+_putchar('_');
+_putchar('p');
+_putchar('u');
+_putchar('t');
+_putchar('c');
+_putchar('h');
+_putchar('a');
+_putchar('r');
 _putchar('\n');
 return (0);
 }
