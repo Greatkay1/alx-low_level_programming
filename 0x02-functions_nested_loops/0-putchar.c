@@ -1,19 +1,18 @@
 #include "main.h"
 /**
  * main - print _putchar
- * ls written by okhai
- * Return: 0
+ *
+ *
+ * Return: Always 0
  */
 int main(void)
 {
-_putchar('_');
-_putchar('p');
-_putchar('u');
-_putchar('t');
-_putchar('c');
-_putchar(h');
-_putchar('a');
-_putchar('r');
+int a;
+char b[] = "_putchar";
+for (a = 0; a < 9; a++);
+{
+_putchar(b[a]);=
+}
 _putchar('\n');
 return (0);
 }
