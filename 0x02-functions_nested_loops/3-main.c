@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * main - function that checks for lowercase character
+ * main - check the code.
  *
- * Return: Always 0
+ * Return: Always 0.
  */
 int main(void)
 {
