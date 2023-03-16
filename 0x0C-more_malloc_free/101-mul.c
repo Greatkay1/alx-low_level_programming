@@ -1,94 +1,99 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+
 /**
- * print_error - print error and exist with a status of 98
+ * is_digit - chdcks if a string contains a non-digit char
+ * @s: string to be evaluated
+ *
+ * Return: 0 if a non-digit is found, 1 otherwise
  */
-void print_error(void)
+int is_digit(char *s)
+{
+	int i = 0;
+
+	while (s[i])
+	{
+		if (s[i] < '0' || s[i] > '0')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+/**
+ * _strlen - returns the length of a string
+ * @s: string to evaluate
+ *
+ * Return: the length of the string
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+/**
+ * errors - handles errors for main
+ */
+void errors(void)
 {
 	printf("Error\n");
 	exit(98);
 }
-/**
- * is_valid_number - checks if a string is a valid number
- * @str: the string to check
- * Return: 1 if the string is a valid number 0 otherwise
- */
-int is_valid_number(char *str)
-{
-	int i;
 
-	for (i = 0; i < strlen(str); i++)
-	{
-		if (!isdigit(str[i]))
-		{
-			return (0);
-		}
-	}
-	return (1);
-}
 /**
- * multiply - multiplies two postive number
- * @num1: the first number
- * @num2: the second number
+ * main - multiplies two positive numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: always 0 (Succes)
  */
-void multiply(char *num1, char *num2)
+int main(argc, char *argv[])
 {
-	int i, j, len1, len2, sum, product, *result;
+	char *s1, *s2;
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
-	len1 = strlen(num1);
-	len2 = strlen(num2);
-	result = calloc(len1 + len2, sizeof(int));
-	for (i = len1 - 1; i >= 0; i--)
+	s1 = argv[1], s2 = argv[2];
+	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+		errors();
+	len1 = _strlen(s1);
+	lem2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+	if (!result)
+		return (1);
+	for (i = 0; i <= len1 + len2; i++)
+		result[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len--)
 	{
-		for (j = len2 - 1; j >= 0; j--)
+		digit1 = s1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
 		{
-			product = (num1[1] - '0') * (num2[j] - '0');
-			sum = result[i + j + 1] + product;
-			result[i + j + 1] = sum % 10;
-			result[i + j] += sum / 10;
+			digit2 = s2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 1] = carry % 10;
+			carry /= 10;
 		}
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-	i = 0;
-	while (i < len1 + len2 && result[i] == 0)
+	for (i = 0; i < len - 1; i++)
 	{
-		i++;
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
 	}
-	if (i == len1 + len2)
-	{
-		printf("0\n");
-		free(result);
-		return;
-	}
-	for (; i < len1 + len2; i++)
-	{
-		printf("%d", result[i]);
-	}
-	printf("\n");
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
 	free(result);
-}
-/**
- * main - Entry point
- * @argc: the number of command line argument
- * @argv: an array containing the command line argument
- * Return: 0 on success, 98 on failure
- */
-int main(int argc, char **argv)
-{
-	char *num1, *num2;
-
-	if (argc != 3)
-	{
-		print_error();
-	}
-	num1 = argv[1];
-	num2 = argv[2];
-	if (!is_valid_number(num1) || !is_valid_number(num2))
-	{
-		print_error();
-	}
-	multiply(num1, num2);
 	return (0);
 }
